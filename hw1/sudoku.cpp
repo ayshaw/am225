@@ -129,7 +129,7 @@ int main()
 					{0, 0, 5, 2, 0, 6, 3, 0, 0}};
 	if (SolveSudoku(grid) == true)
 		printGrid(grid);
-		printf('yourmom')
+		printf('yourmom');
 	else
 		printf("No solution exists");
 
