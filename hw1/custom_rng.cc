@@ -43,9 +43,9 @@ double fiveormore=0;
 clock_t time_req;
 time_req=clock();
 
-#pragma omp parallel for num_threads(16)
+#pragma omp parallel for
 for (int i=1;i<1000000000;i++) { 
-    int d=omp_get_num_threads();
+    int d=omp_get_num_threads(); printf("\n number of threads: %d \n",d);
     double draw=0;
     double add=0;
     double counter=0;

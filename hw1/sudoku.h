@@ -17,6 +17,7 @@ for Sudoku solution (non-duplication across rows, columns, and boxes) */
 
 bool FindUnassignedLocation(int grid[N][N], int &row, int &col)
 {
+	#pragma omp parallel for collapse(2)
 	for (row = 0; row < N; row++)
 		for (col = 0; col < N; col++)
 			if (grid[row][col] == UNASSIGNED)
@@ -28,6 +29,7 @@ bool FindUnassignedLocation(int grid[N][N], int &row, int &col)
 in the specified row matches the given number. */
 bool UsedInRow(int grid[N][N], int row, int num)
 {
+	#pragma omp parallel for
 	for (int col = 0; col < N; col++)
 		if (grid[row][col] == num)
 			return true;
@@ -38,6 +40,7 @@ bool UsedInRow(int grid[N][N], int row, int num)
 in the specified column matches the given number. */
 bool UsedInCol(int grid[N][N], int col, int num)
 {
+	#pragma omp parallel for
 	for (int row = 0; row < N; row++)
 		if (grid[row][col] == num)
 			return true;
@@ -48,6 +51,7 @@ bool UsedInCol(int grid[N][N], int col, int num)
 within the specified 3x3 box matches the given number. */
 bool UsedInBox(int grid[N][N], int boxStartRow, int boxStartCol, int num)
 {
+	#pragma omp parallel for collapse(2)
 	for (int row = 0; row < 3; row++)
 		for (int col = 0; col < 3; col++)
 			if (grid[row+boxStartRow][col+boxStartCol] == num)
@@ -69,6 +73,7 @@ bool isSafe(int grid[N][N], int row, int col, int num)
 /* A utility function to print grid */
 void printGrid(int grid[N][N])
 {
+	#pragma omp parallel for collapse(2)
 	for (int row = 0; row < N; row++)
 	{
 	for (int col = 0; col < N; col++)

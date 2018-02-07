@@ -20,7 +20,7 @@ bool SolveSudoku(int grid[N][N])
 	// If there is no unassigned location, we are done
 	if (!FindUnassignedLocation(grid, row, col))
 	return true; // success!
-
+	#pragma omp parallel for 
 	// consider digits 1 to 9
 	for (int num = 1; num <= 9; num++)
 	{
