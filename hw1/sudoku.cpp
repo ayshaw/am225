@@ -89,7 +89,7 @@ bool UsedInBox(int grid[N][N], int boxStartRow, int boxStartCol, int num)
 		for (int col = 0; col < 3; col++)
 			if (grid[row+boxStartRow][col+boxStartCol] == num)
 				return true;
-	return false;
+	return false; 
 }
 
 /* Returns a boolean which indicates whether it will be legal to assign
@@ -129,6 +129,7 @@ int main()
 					{0, 0, 5, 2, 0, 6, 3, 0, 0}};
 	if (SolveSudoku(grid) == true)
 		printGrid(grid);
+		printf('yourmom')
 	else
 		printf("No solution exists");
 
