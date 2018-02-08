@@ -20,7 +20,7 @@ int main()
 	int counter=0;
 	int n = 1E6;
 	int N = pow(2,77232916)-1;
-	printf("%d",N);
+
 	int counterN=0;
 	cout<< "Following are the prime numbers smaller than or equal to " << n << endl;
 	
@@ -64,6 +64,8 @@ int main()
 
 		}
 	cout<<"number divisible by M:"<<counter<<"  factors of N: " << counterN<<"\n"<<endl;
+	
+	printf("%d",N);
 	return 0;
 }
 
