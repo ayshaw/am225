@@ -49,7 +49,7 @@ int main()
 {
 	clock_t time_req;
 	time_req=clock();
-	int n=100
+	int n=100;
 	for (int c=1; c<=n; c++)
 	{
 
