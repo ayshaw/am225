@@ -92,7 +92,7 @@ for (int i=1;i<1000000000;i++)
 }
 */
 int main() {
-double sum=0;
+int sum=0;
 double two=0;
 double three=0;
 double four=0;
@@ -101,8 +101,8 @@ double fiveormore=0;
 clock_t time_req;
 time_req=clock();
 
-for (int k=0; k<threads;k++)
-{rng[k]=new custom_rng(k)}
+// for (int k=0; k<threads;k++)
+// {rng[k]=new custom_rng(k)}
 
 #pragma omp parallel for reduction (+:sum)
 for (int i=1;i<1000000000;i++) 
