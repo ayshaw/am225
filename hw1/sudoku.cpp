@@ -49,9 +49,9 @@ int main()
 {
 	clock_t time_req;
 	time_req=clock();
-	int n=100;
+	int runs=100;
 
-	for (int c=1; c=n; c++)
+	for (int i=1; i=runs; i++)
 	{
 
 			// 0 means unassigned cells
@@ -72,8 +72,8 @@ int main()
 			return 0;
 	}
 
-	time_req = (clock() - time_req)/n;
-	std::cout<< "\nit took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds\n" << std::endl;	
+	time_req = (clock() - time_req);
+	std::cout<< "\nit took "<< (float)time_req/CLOCKS_PER_SEC/(float)runs<< " seconds\n" << std::endl;	
 }
 
 // fuck everything now
