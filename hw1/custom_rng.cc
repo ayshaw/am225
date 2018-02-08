@@ -43,7 +43,7 @@ double fiveormore=0;
 clock_t time_req;
 time_req=clock();
 
-#pragma omp parallel for reduction (+:sum)
+#pragma omp parallel for reduction (sum:+)
 for (int i=1;i<1000000000;i++) 
     { 
         int d=omp_get_num_threads(); printf("\n number of threads: %d \n",d);
