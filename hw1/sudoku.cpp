@@ -50,6 +50,7 @@ int main()
 	clock_t time_req;
 	time_req=clock();
 	int n=100;
+
 	for (int c=1; c=n; c++)
 	{
 
@@ -69,9 +70,10 @@ int main()
 				printf("No solution exists");
 		
 			return 0;
-	}	
+	}
+
 	time_req = (clock() - time_req)/n;
-	std::cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << std::endl;	
+	std::cout<< "\nit took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds\n" << std::endl;	
 }
 
 // fuck everything now
