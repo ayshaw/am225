@@ -73,7 +73,7 @@ bool isSafe(int grid[N][N], int row, int col, int num)
 /* A utility function to print grid */
 void printGrid(int grid[N][N])
 {
-	#pragma omp parallel for collapse(2)
+	#pragma omp parallel for 
 	for (int row = 0; row < N; row++)
 	{
 	for (int col = 0; col < N; col++)
