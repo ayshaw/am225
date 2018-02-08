@@ -32,7 +32,7 @@ class custom_rng {
             return 5.42101086242752217E-20*int64();
         }
 };
-
+/*
 int main() {
 double sum=0;
 double two=0;
@@ -44,8 +44,9 @@ clock_t time_req;
 time_req=clock();
 int threads=omp_set_num_threads(4);
 for (int k=0; k<threads;k++)
-{rng[k]=new custom_rng(k);}
-#pragma omp parallel num_threads(2)
+    {rng[k]=custom_rng(k);}
+
+#pragma omp parallel num_threads(4)
 {
 #pragma omp for reduction (+:sum)
 for (int i=1;i<10;i++) 
@@ -64,7 +65,7 @@ for (int i=1;i<10;i++)
             // Generate the numbers
             
     	while (add<1){
-    	draw=rng[to]
+    	draw=rng[to];
     	add=add+draw;
     	counter=counter+1;
     	//printf("%g %g\n",counter,draw);
@@ -74,7 +75,7 @@ for (int i=1;i<10;i++)
     	sum+=money;
     	//printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
         // Delete random number generators
-        delete c;
+        
         
         if (counter==2) two=two+1;
         else if (counter==3) three=three+1;
@@ -90,7 +91,7 @@ for (int i=1;i<10;i++)
         //printf("Threads: %d\n",d);
         return 0;
 }
-/*
+*/
 int main() {
 int sum=0;
 double two=0;
@@ -103,45 +104,46 @@ time_req=clock();
 
 // for (int k=0; k<threads;k++)
 // {rng[k]=new custom_rng(k)}
-
-#pragma omp parallel for reduction (+:sum)
-for (int i=1;i<1000000000;i++) 
-    { 
-        int d=omp_get_thread_num(); 
-        double draw=0;
-        double add=0;
-        double counter=0;
-        double money=-250;
-        
-
-        // Create an array of pointers to random number generators
-        custom_rng* c;
-
-        // Create random number generators, each with a different initial seed
-        c=new custom_rng(time(0)*i);
-
-            // Generate the numbers
+#pragma omp parallel num_threads(4)
+    {
+    #pragma omp for reduction (+:sum)
+    for (int i=1;i<1000000000;i++) 
+        { 
+            double draw=0;
+            double add=0;
+            double counter=0;
+            double money=-250;
             
-        while (add<1){
-        draw=c->doub();
-        add=add+draw;
-        counter=counter+1;
-        //printf("%g %g\n",counter,draw);
-        }
 
-        money= money + counter*100;
-        sum+=money;
-        //printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
-        // Delete random number generators
-        delete c;
-        
-        if (counter==2) two=two+1;
-        else if (counter==3) three=three+1;
-        else if (counter==4) four= four+1;
-        else if (counter>4) fiveormore=fiveormore+1;
-        
-        if (i==1000000000) printf("%d",d);
-    }
+            // Create an array of pointers to random number generators
+            custom_rng* c;
+
+            // Create random number generators, each with a different initial seed
+            c=new custom_rng(time(0)*i);
+
+                // Generate the numbers
+                
+            while (add<1){
+            draw=c->doub();
+            add=add+draw;
+            counter=counter+1;
+            //printf("%g %g\n",counter,draw);
+            }
+
+            money= money + counter*100;
+            sum+=money;
+            //printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
+            // Delete random number generators
+            delete c;
+            
+            if (counter==2) two=two+1;
+            else if (counter==3) three=three+1;
+            else if (counter==4) four= four+1;
+            else if (counter>4) fiveormore=fiveormore+1;
+            
+            if (i==1000000000) printf("%d",d);
+        }
+    }   
         printf("two draws: %g, three draws: %g, four draws: %g, five+ draws: %g, total money: $%g\n",two,three,four,fiveormore,sum);
         time_req = clock() - time_req;
         cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << endl;
