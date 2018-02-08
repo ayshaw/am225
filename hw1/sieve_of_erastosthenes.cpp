@@ -69,21 +69,6 @@ int main()
 void largestsquarelessthanN(int val,int& m)
 	{
 	m=(int)floor(sqrt(((float)val)));
-	/*for (int x=val;x<=2;x--)	
-		{
-		y=sqrt(x);
-		m=(int)y;
-		
-
-		if (abs(floor(y)-y)==0) 
-			{
-			break;
-			}
-		cout<<m<<endl;
-		}
-
-		//printf("chosen value: %d",m);
-	*/
 	}
 
 
