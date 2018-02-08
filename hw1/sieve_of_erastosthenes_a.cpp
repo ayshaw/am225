@@ -28,12 +28,13 @@ int main()
 	// all entries it as true. A value in prime[i] will
 	// finally be false if i is Not a prime, else true.
 	bool prime[n+1];
-	int M;
 	largestsquarelessthanN(n,v);
-	printf("largest square less than %d: %d\n",n,v);
+	// printf("largest square less than %d: %d\n",n,v);
 	memset(prime, true, sizeof(prime));
 	
-#pragma omp parallel for num_threads(8)
+#pragma omp parallel num_threads(8)
+	{
+	#pragma omp for
 	for (int p=2; p<=v ; p++)
 		{
 		// If prime[p] is not changed, then it is a prime
@@ -44,8 +45,11 @@ int main()
 			}
 	//if (p*p<=n) printf("%d",omp_get_num_threads());
 		}
+	}
 
-#pragma omp parallel for num_threads(8)
+#pragma omp parallel num_threads(8)
+	{
+	#pragma omp for	
 	// Print all prime numbers
 	for (int p=2; p<=n; p++)		
 		{
@@ -53,19 +57,20 @@ int main()
 		if (prime[p])
 			{ 
 			cout <<"prime number"<< p << " ";
-			div_t divresult;
-			divresult=div(p,M);
-			printf(" %d div %d is %d with remainder %d \n",p,M,divresult.quot,divresult.rem);
-			div_t divresultN;
-			divresultN=div(N,p);
-			if (divresultN.rem==0) {counterN=counterN+1;}
-			if (divresult.rem==0) {counter=counter+1;}	
+			// div_t divresult;
+			// divresult=div(p,M);
+			// printf(" %d div %d is %d with remainder %d \n",p,M,divresult.quot,divresult.rem);
+			// div_t divresultN;
+			// divresultN=div(N,p);
+			// if (divresultN.rem==0) {counterN=counterN+1;}
+			// if (divresult.rem==0) {counter=counter+1;}	
 			}
 
 		}
-	cout<<"number divisible by M:"<<counter<<"  factors of N: " << counterN<<"\n"<<endl;
+	}
+	// cout<<"number divisible by M:"<<counter<<"  factors of N: " << counterN<<"\n"<<endl;
 	
-	printf("%d",N);
+	// printf("%d",N);
 	return 0;
 }
 
