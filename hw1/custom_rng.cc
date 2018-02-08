@@ -44,43 +44,46 @@ clock_t time_req;
 time_req=clock();
 
 #pragma omp parallel for
-for (int i=1;i<1000000000;i++) { 
-    int d=omp_get_num_threads(); printf("\n number of threads: %d \n",d);
-    double draw=0;
-    double add=0;
-    double counter=0;
-    double money=-250;
-	
+for (int i=1;i<1000000000;i++) 
+    { 
+        int d=omp_get_num_threads(); printf("\n number of threads: %d \n",d);
+        double draw=0;
+        double add=0;
+        double counter=0;
+        double money=-250;
+    	
 
-    // Create an array of pointers to random number generators
-    custom_rng* c;
+        // Create an array of pointers to random number generators
+        custom_rng* c;
 
-    // Create random number generators, each with a different initial seed
-	c=new custom_rng(time(0)*i);
+        // Create random number generators, each with a different initial seed
+    	c=new custom_rng(time(0)*i);
 
-        // Generate the numbers
+            // Generate the numbers
+            
+    	while (add<1){
+    	draw=c->doub();
+    	add=add+draw;
+    	counter=counter+1;
+    	//printf("%g %g\n",counter,draw);
+    	}
+
+    	money= money + counter*100;
+    	total=total+money;
+    	//printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
+        // Delete random number generators
+        delete c;
         
-	while (add<1){
-	draw=c->doub();
-	add=add+draw;
-	counter=counter+1;
-	//printf("%g %g\n",counter,draw);
+        if (counter==2) two=two+1;
+        else if (counter==3) three=three+1;
+        else if (counter==4) four= four+1;
+        else if (counter>4) fiveormore=fiveormore+1;
+        
+        if (i==1000000000) printf("%d",d);
 	}
-
-	money= money + counter*100;
-	total=total+money;
-	//printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
-    // Delete random number generators
-    delete c;
-if (counter==2) two=two+1;
-else if (counter==3) three=three+1;
-else if (counter==4) four= four+1;
-else if (counter>4) fiveormore=fiveormore+1;
-if (i==1000000000) printf("%d",d);
-	}
-printf("two draws: %g, three draws: %g, four draws: %g, five+ draws: %g, total money: $%g\n",two,three,four,fiveormore,total);
-time_req = clock() - time_req;
-cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << endl;
-//printf("Threads: %d\n",d);
-return 0;
+        printf("two draws: %g, three draws: %g, four draws: %g, five+ draws: %g, total money: $%g\n",two,three,four,fiveormore,total);
+        time_req = clock() - time_req;
+        cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << endl;
+        //printf("Threads: %d\n",d);
+        return 0;
 }
