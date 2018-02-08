@@ -34,7 +34,7 @@ class custom_rng {
 };
 
 int main() {
-double total=0;
+double sum=0;
 double two=0;
 double three=0;
 double four=0;

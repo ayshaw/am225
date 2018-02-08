@@ -28,7 +28,7 @@ int main()
 	// all entries it as true. A value in prime[i] will
 	// finally be false if i is Not a prime, else true.
 	bool prime[n+1];
-	int M=0+1024+2*pow(1024,2);
+	int M;
 	largestsquarelessthanN(n,v);
 	printf("largest square less than %d: %d\n",n,v);
 	memset(prime, true, sizeof(prime));
