@@ -42,10 +42,9 @@ double fiveormore=0;
 
 clock_t time_req;
 time_req=clock();
-int threads=omp_set_num_threads(4)
+int threads=omp_set_num_threads(4);
 for (int k=0; k<threads;k++)
-{custom_rng*rng(k*time(i));
-rng[k]=new custom_rng(k);}
+{rng[k]=new custom_rng(k);}
 #pragma omp parallel num_threads(2)
 {
 #pragma omp for reduction (+:sum)
@@ -65,7 +64,7 @@ for (int i=1;i<10;i++)
             // Generate the numbers
             
     	while (add<1){
-    	draw=rng[to]->doub();
+    	draw=rng[to]
     	add=add+draw;
     	counter=counter+1;
     	//printf("%g %g\n",counter,draw);
