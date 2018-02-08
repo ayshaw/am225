@@ -109,6 +109,7 @@ time_req=clock();
     #pragma omp for reduction (+:sum)
     for (int i=1;i<1000000000;i++) 
         { 
+            int d=omp_get_thread_num(); 
             double draw=0;
             double add=0;
             double counter=0;
