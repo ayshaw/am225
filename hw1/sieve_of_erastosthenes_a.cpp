@@ -56,7 +56,7 @@ int main()
 	
 		if (prime[p])
 			{ 
-			cout <<"prime number"<< p << " /n";
+			cout << p << " /n";
 			// div_t divresult;
 			// divresult=div(p,M);
 			// printf(" %d div %d is %d with remainder %d \n",p,M,divresult.quot,divresult.rem);
