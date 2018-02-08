@@ -43,7 +43,7 @@ double fiveormore=0;
 clock_t time_req;
 time_req=clock();
 
-#pragma omp parallel for
+#pragma omp parallel for reduction (+:sum)
 for (int i=1;i<1000000000;i++) 
     { 
         int d=omp_get_num_threads(); printf("\n number of threads: %d \n",d);
@@ -69,7 +69,7 @@ for (int i=1;i<1000000000;i++)
     	}
 
     	money= money + counter*100;
-    	total=total+money;
+    	sum+=money;
     	//printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
         // Delete random number generators
         delete c;
@@ -81,7 +81,7 @@ for (int i=1;i<1000000000;i++)
         
         if (i==1000000000) printf("%d",d);
 	}
-        printf("two draws: %g, three draws: %g, four draws: %g, five+ draws: %g, total money: $%g\n",two,three,four,fiveormore,total);
+        printf("two draws: %g, three draws: %g, four draws: %g, five+ draws: %g, total money: $%g\n",two,three,four,fiveormore,sum);
         time_req = clock() - time_req;
         cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << endl;
         //printf("Threads: %d\n",d);
