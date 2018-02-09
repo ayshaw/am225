@@ -1,8 +1,13 @@
 #include <iostream>
 #include <cmath>
-double findingremainder(double k[3],double d[3], double B, double divisor,double &remainder)
+
+// define the length of your d,k vectors
+#define n 3
+
+//function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
+double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
 {
-	for (int i=1;i=3;i++)
+	for (int i=1;i<=n;i++)
 
 	{
 		
@@ -13,10 +18,11 @@ double findingremainder(double k[3],double d[3], double B, double divisor,double
 		return remainder;
 }
 
+//calling your variables
 main()
 {
-	double k[3] = {0, 1, 2};
-	double d[3] = {7, 5, 2};
+	double k[n] = {0, 1, 2};
+	double d[n] = {7, 5, 2};
 	double B = 10;
 	double divisor = 3;
 	double remainder = 0;
