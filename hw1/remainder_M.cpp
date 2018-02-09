@@ -12,7 +12,7 @@ double findingremainder(double k[n],double d[n], double B, double divisor,double
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
 double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
 {
-	for (int i=1;i<=n;i++)
+	for (int i=0;i<n;i++)
 
 	{
 		
