@@ -1,28 +1,34 @@
 #include <iostream>
 #include <cmath>
-
-
-main()
+double findingremainder(double k[3],double d[3], double B, double divisor,double &remainder)
 {
-	int k[3] = {0, 1, 2};
-	int d[3] = {7, 5, 2};
-	int B = 10;
-	int divisor = 3;
-	int remainder = 0;
 	for (int i=1;i=3;i++)
 
 	{
-		int power=pow(B, k[i]);
-		remainder=d[i]*power%divisor+remainder;
+		
+		remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
 	}
 	
-		remainder=remainder%divisor;
-		
+		remainder=remainder-floor(remainder/divisor)*divisor;
+		return remainder;
+}
+
+main()
+{
+	double k[3] = {0, 1, 2};
+	double d[3] = {7, 5, 2};
+	double B = 10;
+	double divisor = 3;
+	double remainder = 0;
+	
+	findingremainder(k,d, B,divisor,remainder);
+
 	std::cout<<remainder<<std::endl;
 
 
 
 }
+
 
 
 
