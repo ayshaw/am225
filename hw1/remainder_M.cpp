@@ -34,8 +34,8 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k= (int)77232917/20;
-	double d= (int)77232917%20;
+	double k= (double)((int)77232917/20);
+	double d= (double)((int)77232917%20);
 	double B = pow(2,20);
 	
 	double remainder = 0;
