@@ -33,11 +33,11 @@ int main()
 
 	int v=0;
 	int counter=0;
-	int n = 1E6;
+	int n = 1000000;
 	double k= (int)77232917/20;
 	double d= (int)77232917%20;
 	double B = pow(2,20);
-	double divisor = ;
+	
 	double remainder = 0;
 	
 	bool prime[n+1];
@@ -68,7 +68,7 @@ int main()
 	
 		if (prime[p])
 			{ 
-			findingremainder(k,d,B,p,remainder);
+			findingremainder(k,d,B,(double)p,remainder);
 			int rem=remainder-1;
 			if (rem==0) counter+=counter;
 				
@@ -76,7 +76,7 @@ int main()
 
 		}
 	}
-	printf("factors of M: %d, counter")
+	printf("factors of M: %d, counter");
 	return 0;
 }
 
