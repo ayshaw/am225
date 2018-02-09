@@ -6,11 +6,11 @@
 
 void largestsquarelessthanN(int val,int& m);
 
-double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder);
+double findingremainder(double k[n],double d[n], double B, int divisor,double &remainder);
 
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
+double findingremainder(double k[n],double d[n], double B, int divisor,double &remainder)
 {
 	for (int i=0;i<n;i++)
 
@@ -33,14 +33,14 @@ int main()
 
 	int v=0;
 	int counter=0;
-	int n = 1000000;
+	int val = 1000000;
 	double k= (int)77232917/20;
 	double d= (int)77232917%20;
 	double B = pow(2,20);
 	
 	double remainder = 0;
 	
-	bool prime[n+1];
+	bool prime[val+1];
 	largestsquarelessthanN(n,v);
 	memset(prime, true, sizeof(prime));
 	
@@ -59,23 +59,23 @@ int main()
 		}
 	}
 
-#pragma omp parallel num_threads(8)
-	{
+
+
 	#pragma omp for	
 	// Print all prime numbers
-	for (int p=2; p<=n; p++)		
+	for (int p=2; p<=val; p++)		
 		{
 	
 		if (prime[p])
 			{ 
-			findingremainder(k,d,B,(double)p,remainder);
+			findingremainder(k,d,B,p,remainder);
 			int rem=remainder-1;
 			if (rem==0) counter+=counter;
 				
 			}
 
 		}
-	}
+	
 	printf("factors of M: %d, counter");
 	return 0;
 }
