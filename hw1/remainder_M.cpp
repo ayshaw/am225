@@ -4,6 +4,11 @@
 // define the length of your d,k vectors
 #define n 1
 
+void largestsquarelessthanN(int val,int& m);
+
+double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
+
+
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
 double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
 {
@@ -18,8 +23,10 @@ double findingremainder(double k[n],double d[n], double B, double divisor,double
 		return remainder;
 }
 
-
-void largestsquarelessthanN(int val,int& m);
+void largestsquarelessthanN(int val,int& m)
+	{
+	m=(int)floor(sqrt(((float)val)));
+	}
 
 int main()
 {
@@ -27,19 +34,14 @@ int main()
 	int v=0;
 	int counter=0;
 	int n = 1E6;
-	double k 77232917\\20;
+	double k (int)77232917\\20;
 	double d= 77232917%20;
 	double B = pow(2,20);
 	double divisor = ;
 	double remainder = 0;
 	
-	
-// Create a boolean array "prime[0..n]" and initialize
-	// all entries it as true. A value in prime[i] will
-	// finally be false if i is Not a prime, else true.
 	bool prime[n+1];
 	largestsquarelessthanN(n,v);
-	// printf("largest square less than %d: %d\n",n,v);
 	memset(prime, true, sizeof(prime));
 	
 #pragma omp parallel num_threads(8)
@@ -66,20 +68,18 @@ int main()
 	
 		if (prime[p])
 			{ 
-			findingremainder(k,d,B,p,remainder)
-			if (remainder=0) counter+=counter
+			findingremainder(k,d,B,p,remainder);
+			int rem=remainder-1;
+			if (rem==0) counter+=counter;
 				
 			}
 
 		}
 	}
+	printf("factors of M: %d, counter")
 	return 0;
 }
 
-void largestsquarelessthanN(int val,int& m)
-	{
-	m=(int)floor(sqrt(((float)val)));
-	}
 
 
 

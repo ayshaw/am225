@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 using namespace std;
 
 void largestsquarelessthanN(int val,int& m);
