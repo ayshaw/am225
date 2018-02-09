@@ -2,7 +2,6 @@
 #include <cmath>
 #include <ctime>
 #include <vector>
-#include <array>
 #include <cstdio>
 #include <math.h>
 
