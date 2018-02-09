@@ -20,6 +20,7 @@ int main()
 	int counter=0;
 	int n = 1E6;
 	int N = pow(2,77232916)-1;
+	int M = pow(2,77232916)-1;
 
 	int counterN=0;
 	cout<< "Following are the prime numbers smaller than or equal to " << n << endl;

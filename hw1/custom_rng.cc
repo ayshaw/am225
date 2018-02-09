@@ -126,12 +126,12 @@ time_req=clock();
                 
             while (add<1){
             draw=c->doub();
-            add=add+draw;
+            add+=draw;
             counter=counter+1;
             //printf("%g %g\n",counter,draw);
             }
 
-            money= money + counter*100;
+            money+=counter*100;
             sum+=money;
             //printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
             // Delete random number generators
