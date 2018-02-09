@@ -34,8 +34,8 @@ int main()
 	int v=0;
 	int counter=0;
 	int n = 1E6;
-	double k (int)77232917\\20;
-	double d= 77232917%20;
+	double k= (int)77232917\20;
+	double d= (int)77232917%20;
 	double B = pow(2,20);
 	double divisor = ;
 	double remainder = 0;
