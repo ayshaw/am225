@@ -1,9 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <ctime>
-#include <vector>
-#include <cstdio>
-#include <math.h>
+
 
 main()
 {
@@ -12,19 +9,21 @@ main()
 	int B = 10;
 	int divisor = 3;
 	int remainder = 0;
-	for (int i=0;i=3;i++)
+	for (int i=1;i=3;i++)
 
 	{
-		remainder+=d[i]*(int)pow(B, k[i])%divisor;
+		int power=pow(B, k[i]);
+		remainder=d[i]*power%divisor+remainder;
 	}
 	
 		remainder=remainder%divisor;
-		return remainder;
+		
 	std::cout<<remainder<<std::endl;
 
 
 
 }
+
 
 
 
