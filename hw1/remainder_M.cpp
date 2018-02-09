@@ -6,7 +6,7 @@
 
 void largestsquarelessthanN(int val,int& m);
 
-double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder)
+double findingremainder(double k[n],double d[n], double B, double divisor,double &remainder);
 
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
@@ -34,7 +34,7 @@ int main()
 	int v=0;
 	int counter=0;
 	int n = 1E6;
-	double k= (int)77232917\20;
+	double k= (int)77232917/20;
 	double d= (int)77232917%20;
 	double B = pow(2,20);
 	double divisor = ;
