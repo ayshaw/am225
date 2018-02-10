@@ -1,16 +1,18 @@
 #include <iostream>
 #include <cmath>
+#include <stdio.h>
+#include <cstdio>
 
 // define the length of your d,k vectors
 #define n 1
 
 void largestsquarelessthanN(int val,int& m);
 
-double findingremainder(double k[n],double d[n], double B, int divisor,double &remainder);
+double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder);
 
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(double k[n],double d[n], double B, int divisor,double &remainder)
+double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder)
 {
 	for (int i=0;i<n;i++)
 
@@ -44,9 +46,7 @@ int main()
 	largestsquarelessthanN(n,v);
 	memset(prime, true, sizeof(prime));
 	
-#pragma omp parallel num_threads(8)
-	{
-	#pragma omp for
+
 	for (int p=2; p<=v ; p++)
 		{
 		// If prime[p] is not changed, then it is a prime
@@ -57,11 +57,10 @@ int main()
 			}
 	//if (p*p<=n) printf("%d",omp_get_num_threads());
 		}
-	}
 
 
 
-	#pragma omp for	
+
 	// Print all prime numbers
 	for (int p=2; p<=val; p++)		
 		{

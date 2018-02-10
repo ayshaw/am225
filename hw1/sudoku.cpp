@@ -51,7 +51,7 @@ int main()
 	time_req=clock();
 	int runs=100;
 
-	for (int i=1; i=runs; i++)
+	for (int i=1; i<=runs; i++)
 	{
 
 			// 0 means unassigned cells
