@@ -63,11 +63,10 @@ int main()
 					{0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
 	for (int i=1; i<runs; i++)
-	{printf("%d",i);
+	{printf("run %d\n",i);
 
 			if (SolveSudoku(grid) == true)
-				{printGrid(grid);
-				printf("%d",i);}
+				{printGrid(grid);}
 			else
 				printf("No solution exists");
 		
@@ -77,7 +76,7 @@ int main()
 
 	time_req = clock() - time_req;
 	float realtime=(float)time_req/CLOCKS_PER_SEC/100;
-	printf("it took %e seconds",realtime);
+	printf("it took %e seconds per stupid ass fucking run",realtime);
 	return 0;
 }
 
