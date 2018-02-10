@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include "sudoku.h"
-
+using namespace std;
 // A Backtracking program in C++ to solve Sudoku problem
 #include <stdio.h>
 
@@ -51,7 +51,7 @@ int main()
 	time_req=clock();
 	int runs=100;
 
-	for (int i=1; i>=runs; i++)
+	for (int i=1; i>runs; i++)
 	{
 
 			// 0 means unassigned cells
@@ -70,13 +70,14 @@ int main()
 			else
 				printf("No solution exists");
 		
-			return 0;
+			
 
 	}
 
-	time_req = (clock() - time_req);
-
+	time_req = clock() - time_req;
 	std::cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC/100<< " seconds\n" << std::endl;	
+return 0;
 }
+
 
 // fuck everything now
