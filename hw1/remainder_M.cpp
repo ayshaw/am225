@@ -15,6 +15,7 @@ double findingremainder(double k[n],double d[n], double B, int divisor,double& r
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
 double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder)
 {
+	#pragma omp parallel for reduction (+:remainder)
 	for (int i=0;i<n;i++)
 
 	{
@@ -37,8 +38,8 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k[1]= {(double)((int)77232917/20)};
-	double d[1]= {(double)((int)77232917%20)};
+	double k[n]= {(double)((int)77232917/20)};
+	double d[n]= {(double)((int)77232917%20)};
 	double B = pow(2,20);
 	
 	double remainder = 0;
@@ -53,6 +54,7 @@ int main()
 		// If prime[p] is not changed, then it is a prime
 		if (prime[p] == true)
 			{
+				#pragma omp parallel for
 			// Update all multiples of p
 			for (int i=p*2; i<=n; i += p)	prime[i] = false;
 			}
