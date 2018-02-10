@@ -39,8 +39,8 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k[n]= {(double)((int)77232917/20)};
-	double d[n]= {(double)(pow(2,(int)77232917%20))};
+	double k[n]= {(int)77232917/20};
+	double d[n]= {pow(2,(int)77232917%20)};
 	double B = pow(2,20);
 	
 	double remainder = 0;

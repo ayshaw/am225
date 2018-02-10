@@ -73,7 +73,7 @@ int main()
 	}
 
 	time_req = (clock() - time_req);
-	std::cout<< "\nit took "<< (float)time_req/CLOCKS_PER_SEC/(float)runs<< " seconds\n" << std::endl;	
+	std::cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC/<< " seconds\n" << std::endl;	
 }
 
 // fuck everything now
