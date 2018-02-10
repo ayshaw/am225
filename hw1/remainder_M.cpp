@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <cstdio>
 #include <cstring>
+#include "omp.h"
 
 // define the length of your d,k vectors
 #define n 1
@@ -15,7 +16,7 @@ double findingremainder(double k[n],double d[n], double B, int divisor,double& r
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
 double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder)
 {
-	#pragma omp parallel for reduction (+:remainder)
+	
 	for (int i=0;i<n;i++)
 
 	{
@@ -63,7 +64,7 @@ int main()
 
 
 
-
+#pragma omp parallel for reduction (+:counter)
 	// Print all prime numbers
 	for (int p=2; p<=val; p++)		
 		{
