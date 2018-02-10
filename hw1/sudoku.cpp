@@ -62,7 +62,7 @@ int main()
 					{0, 0, 0, 0, 0, 0, 0, 7, 4},
 					{0, 0, 5, 2, 0, 6, 3, 0, 0}};
 
-	for (int i=1; i>runs; i++)
+	for (int i=1; i<runs; i++)
 	{printf("%d",i);
 
 			if (SolveSudoku(grid) == true)
