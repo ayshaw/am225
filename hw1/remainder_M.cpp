@@ -2,6 +2,7 @@
 #include <cmath>
 #include <stdio.h>
 #include <cstdio>
+#include <cstring>
 
 // define the length of your d,k vectors
 #define n 1
