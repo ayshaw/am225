@@ -37,8 +37,8 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k[1]= (double)((int)77232917/20);
-	double d[1]= (double)((int)77232917%20);
+	double k[1]= {(double)((int)77232917/20)};
+	double d[1]= {(double)((int)77232917%20)};
 	double B = pow(2,20);
 	
 	double remainder = 0;
