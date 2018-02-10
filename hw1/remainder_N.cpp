@@ -40,7 +40,7 @@ int main()
 	int counter=0;
 	int val = 1000000;
 	double k[n]= {(double)((int)77232916/20)};
-	double d[n]= {(double)((int)77232916%20)};
+	double d[n]= {(double)(pow(2,(int)77232916%20))};
 	double B = pow(2,20);
 	
 	double remainder = 0;
@@ -79,7 +79,7 @@ int main()
 
 		}
 	
-	printf("factors of M: %d", counter);
+	printf("factors of N: %d", counter);
 	return 0;
 }
 
