@@ -76,7 +76,7 @@ int main()
 
 		}
 	
-	printf("factors of M: %d, counter");
+	printf("factors of M: %d", counter);
 	return 0;
 }
 
