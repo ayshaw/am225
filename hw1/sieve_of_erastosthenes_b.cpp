@@ -2,7 +2,7 @@
 #include <cmath>
 
 // define the length of your d,k vectors
-#define n 3
+#define n 1
 
 int myPow(int x, int p)
 {
@@ -15,7 +15,7 @@ int myPow(int x, int p)
 }   
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
+int findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
 {
 	// for (int i=0;i<n;i++)
 
@@ -29,7 +29,7 @@ double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
 	for (int i=0; i<n; i++){
 		remainder+=d[i]*B%divisor-d[i]*(int)pow((double)B%divisor,(double)k[i])*divisor;
 	}
-	remainder=remainder-floor(remainder/divisor)*divisor
+	remainder=remainder-floor(remainder/divisor)*divisor;
 }
 
 //calling your variables
