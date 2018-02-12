@@ -18,7 +18,7 @@ bool SolveSudoku(int grid[N][N],int &counter)
 	int row, col;
 
 	// If there is no unassigned location, we are done
-	if (FindUnassignedLocation(grid, row, col)==true)
+	if (FindUnassignedLocation(grid, row, col)==false)
 	
 	counter+=counter;
 	return false; // tell it to go back and search!
