@@ -53,7 +53,7 @@ int main()
 	clock_t time_req;
 	time_req=clock();
 	int runs=100000;
-	int counter=0
+	int counter=0;
 
 	// 0 means unassigned cells
 	int grid[N][N] = {{1, 2, 3, 0, 0, 0, 0, 0, 0},
