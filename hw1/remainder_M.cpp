@@ -39,7 +39,7 @@ double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
 	// 	remainder=remainder-floor(remainder/divisor)*divisor;
 	// 	return remainder;
 	for (int i=0; i<n; i++){
-		remainder+=d[i]*B%divisor-d[i]*myPow(B%divisor,k[i])*divisor;
+		remainder+=d[i]*B%divisor-d[i]*(int)Pow((double)B%divisor,(double)k[i])*divisor;
 	}
 	remainder=remainder-floor(remainder/divisor)*divisor
 }
