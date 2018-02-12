@@ -31,12 +31,6 @@ bool SolveSudoku(int grid[N][N],int &counter)
 		{
 			// make tentative assignment
 			grid[row][col] = num;
-
-			// it checks the number that you put there and if it
-			// is true then
-			if (SolveSudoku(grid,counter)==true)
-				return false;
-
 			// failure, unmake & try again
 			grid[row][col] = UNASSIGNED;
 		}
