@@ -15,7 +15,7 @@ int myPow(int x, int p)
 }   
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-int findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
+int findingremainder(int k[n],int d[n], int B, int divisor,int &remainder)
 {
 	// for (int i=0;i<n;i++)
 
