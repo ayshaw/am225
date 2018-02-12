@@ -104,6 +104,7 @@ time_req=clock();
 
 // for (int k=0; k<threads;k++)
 // {rng[k]=new custom_rng(k)}
+custom_rng** c= new custom_rng
 #pragma omp parallel num_threads(4)
     {
     #pragma omp for reduction (+:sum)
@@ -116,7 +117,7 @@ time_req=clock();
             double money=-250;
             
 
-            // Create an array of pointers to random number generators
+            // Create a pointer to random number generators
             custom_rng* c;
 
             // Create random number generators, each with a different initial seed

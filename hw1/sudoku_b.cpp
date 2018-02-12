@@ -13,13 +13,15 @@ using namespace std;
 #define N 9
 
 
-bool SolveSudoku(int grid[N][N])
+bool SolveSudoku(int grid[N][N],int &counter)
 {
 	int row, col;
 
 	// If there is no unassigned location, we are done
-	if (!FindUnassignedLocation(grid, row, col))
-	return true; // success!
+	if (FindUnassignedLocation(grid, row, col)==false)
+	counter+=counter;
+	
+	return false; // tell it to go back and search!
 	
 	// consider digits 1 to 9
 	for (int num = 1; num <= 9; num++)
@@ -30,8 +32,9 @@ bool SolveSudoku(int grid[N][N])
 			// make tentative assignment
 			grid[row][col] = num;
 
-			// return, if success, yay!
-			if (SolveSudoku(grid))
+			// it checks the number that you put there and if it
+			// is true then
+			if (SolveSudoku(grid)==true)
 				return true;
 
 			// failure, unmake & try again
@@ -50,6 +53,7 @@ int main()
 	clock_t time_req;
 	time_req=clock();
 	int runs=100000;
+	int counter=0
 
 	// 0 means unassigned cells
 	int grid[N][N] = {{1, 2, 3, 0, 0, 0, 0, 0, 0},
@@ -65,10 +69,8 @@ int main()
 	for (int i=1; i<runs; i++)
 	{printf("run %d\n",i);
 
-			if (SolveSudoku(grid) == true)
-				{printGrid(grid);}
-			else
-				printf("No solution exists");
+			SolveSudoku(grid,counter)
+			std::cout<<counter<<std::endl;
 		
 			
 
