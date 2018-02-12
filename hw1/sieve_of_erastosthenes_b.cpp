@@ -2,7 +2,7 @@
 #include <cmath>
 
 // define the length of your d,k vectors
-#define n 1
+#define n 3
 
 int myPow(int x, int p)
 {
