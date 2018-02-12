@@ -4,28 +4,42 @@
 // define the length of your d,k vectors
 #define n 3
 
-//function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(double k[n],double d[n], double B, int divisor,double &remainder)
+int myPow(int x, int p)
 {
-	for (int i=0;i<n;i++)
+  if (p == 0) return 1;
+  if (p == 1) return x;
 
-	{
+  int tmp = myPow(x, p/2);
+  if (p%2 == 0) return tmp * tmp;
+  else return x * tmp * tmp;
+}
+
+//function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
+double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
+{
+	// for (int i=0;i<n;i++)
+
+	// {
 		
-		remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
-	}
+	// 	remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
+	// }
 	
-		remainder=remainder-floor(remainder/divisor)*divisor;
-		return remainder;
+	// 	remainder=remainder-floor(remainder/divisor)*divisor;
+	// 	return remainder;
+	for (int i=0; i<n; i++){
+		remainder+=d[i]*B%divisor-d[i]*myPow(B%divisor,k[i])*divisor;
+	}
+	remainder=remainder-floor(remainder/divisor)*divisor
 }
 
 //calling your variables
 main()
 {
-	double k[n] = {0, 1, 2};
-	double d[n] = {7, 5, 2};
-	double B = 10;
+	int k[n] = {0, 1, 2};
+	int d[n] = {7, 5, 2};
+	int B = 10;
 	int divisor = 3;
-	double remainder = 0;
+	int remainder = 0;
 	
 	findingremainder(k,d, B,divisor,remainder);
 
