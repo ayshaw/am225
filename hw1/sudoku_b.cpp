@@ -49,7 +49,7 @@ int main()
 {
 	clock_t time_req;
 	time_req=clock();
-	int runs=100;
+	int runs=1000;
 
 	// 0 means unassigned cells
 	int grid[N][N] = {{1, 2, 3, 0, 0, 0, 0, 0, 0},
@@ -75,7 +75,7 @@ int main()
 	}
 
 	time_req = clock() - time_req;
-	float realtime=(float)time_req/CLOCKS_PER_SEC/100;
+	float realtime=(float)time_req/CLOCKS_PER_SEC/1000;
 	printf("it took %e seconds per stupid ass fucking run",realtime);
 	return 0;
 }
