@@ -43,7 +43,7 @@ bool SolveSudoku(int grid[N][N])
 
 
 
-bool NewSolution(int grid[N][N])
+
 /* Driver Program to test above functions */
 int main()
 {
@@ -76,7 +76,7 @@ int main()
 
 	time_req = clock() - time_req;
 	float realtime=(float)time_req/CLOCKS_PER_SEC/100000;
-	printf("it took %e seconds per stupid ass fucking run",realtime);
+	printf("it took %e seconds per run",realtime);
 	return 0;
 }
 
