@@ -12,20 +12,36 @@ void largestsquarelessthanN(int val,int& m);
 
 double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder);
 
+int myPow(int x, int p)
+
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder)
+int myPow(int x, int p)
 {
-	
-	for (int i=0;i<n;i++)
+  if (p == 0) return 1;
+  if (p == 1) return x;
 
-	{
+  int tmp = myPow(x, p/2);
+  if (p%2 == 0) return tmp * tmp;
+  else return x * tmp * tmp;
+}
+
+//function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
+double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
+{
+	// for (int i=0;i<n;i++)
+
+	// {
 		
-		remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
-	}
+	// 	remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
+	// }
 	
-		remainder=remainder-floor(remainder/divisor)*divisor;
-		return remainder;
+	// 	remainder=remainder-floor(remainder/divisor)*divisor;
+	// 	return remainder;
+	for (int i=0; i<n; i++){
+		remainder+=d[i]*B%divisor-d[i]*myPow(B%divisor,k[i])*divisor;
+	}
+	remainder=remainder-floor(remainder/divisor)*divisor
 }
 
 void largestsquarelessthanN(int val,int& m)
