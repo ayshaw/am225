@@ -42,7 +42,7 @@ main()
 	int remainder = 0;
 	
 	findingremainder(k,d, B,divisor,remainder);
-	int rem = 
+	remainder = remainder-1;
 	std::cout<<remainder<<std::endl;
 
 
