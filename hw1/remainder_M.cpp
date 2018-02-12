@@ -27,7 +27,7 @@ double findingremainder(double k[n],double d[n], double B, int divisor,double& r
 // }
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
+double findingremainder(int k[n],int d[n], int B, int divisor,int &remainder)
 {
 	// for (int i=0;i<n;i++)
 
@@ -55,9 +55,9 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k[n]= {(int)77232917/20};
-	double d[n]= {pow(2,(int)77232917%20)};
-	double B = pow(2,20);
+	int k[n]= {(int)77232917/50};
+	int d[n]= {pow(2,(int)77232917%50)};
+	int B = pow(2,20);
 	
 	double remainder = 0;
 	

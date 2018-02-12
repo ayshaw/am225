@@ -12,7 +12,7 @@ int myPow(int x, int p)
   int tmp = myPow(x, p/2);
   if (p%2 == 0) return tmp * tmp;
   else return x * tmp * tmp;
-}
+}   
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
 double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
@@ -27,7 +27,7 @@ double findingremainder(int k[n],int d[n], int B, int divisor,double &remainder)
 	// 	remainder=remainder-floor(remainder/divisor)*divisor;
 	// 	return remainder;
 	for (int i=0; i<n; i++){
-		remainder+=d[i]*B%divisor-d[i]*myPow(B%divisor,k[i])*divisor;
+		remainder+=d[i]*B%divisor-d[i]*(int)pow((double)B%divisor,(double)k[i])*divisor;
 	}
 	remainder=remainder-floor(remainder/divisor)*divisor
 }
