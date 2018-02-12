@@ -18,9 +18,9 @@ bool SolveSudoku(int grid[N][N],int &counter)
 	int row, col;
 
 	// If there is no unassigned location, we are done
-	if (FindUnassignedLocation(grid, row, col)==false)
-	counter+=counter;
+	if (FindUnassignedLocation(grid, row, col)==true)
 	
+	counter+=counter;
 	return false; // tell it to go back and search!
 	
 	// consider digits 1 to 9
@@ -34,8 +34,8 @@ bool SolveSudoku(int grid[N][N],int &counter)
 
 			// it checks the number that you put there and if it
 			// is true then
-			if (SolveSudoku(grid)==true)
-				return true;
+			if (SolveSudoku(grid,counter)==true)
+				return false;
 
 			// failure, unmake & try again
 			grid[row][col] = UNASSIGNED;
@@ -69,7 +69,7 @@ int main()
 	for (int i=1; i<runs; i++)
 	{printf("run %d\n",i);
 
-			SolveSudoku(grid,counter)
+			SolveSudoku(grid,counter);
 			std::cout<<counter<<std::endl;
 		
 			
