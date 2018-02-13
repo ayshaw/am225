@@ -5,13 +5,12 @@
 #include <cstring>
 #include "omp.h"
 
-
-// define the length of your d,k vectors
 #define n 2413528
+// define the length of your d,k vectors
+
 
 void largestsquarelessthanN(int val,int& m);
 
-double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder);
 
 // int myPow(int x, int p)
 
@@ -28,10 +27,10 @@ double findingremainder(double k[n],double d[n], double B, int divisor,double& r
 // }
 
 //function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-int findingremainder(int k[n],int d[n], int B, int divisor,int &remainder)
+int findingremainder(int d[n], int B, int divisor,int &remainder)
 {
-	int q[n]={0};
-	int rem[n]={0};
+	int qnew=0;
+	int remnew=0;
 	// for (int i=0;i<n;i++)
 
 	// {
@@ -41,13 +40,15 @@ int findingremainder(int k[n],int d[n], int B, int divisor,int &remainder)
 	
 	// 	remainder=remainder-floor(remainder/divisor)*divisor;
 	// 	return remainder;
-	q[0]=(int)d[0]/divisor;
-	rem[0]=d[0]%divisor;
-	for (int i=1; i<n; i++){
-		q[i]=floor((rem[i-1]*B+d[i])/divisor);
-		rem[i]=(rem[i-1]*B+d[i])%divisor;
+	int qold=(int)d[0]/divisor;
+	int remold=d[0]%divisor;
+	for (int i=1; i<2413528; i++){
+		qnew=floor((remold*B+d[i])/divisor);
+		remnew=(remold*B+d[i])%divisor;
+		qold=qnew;
+		remold=remnew;
 	}
-	remainder=rem[n-1];
+	remainder=remnew;
 }
 
 void largestsquarelessthanN(int val,int& m)
@@ -62,10 +63,11 @@ int main()
 	int counter=0;
 	int val = 1000000;
 	int k[1]= {2413528};
-	// for (int i=0;i<2413528;i++) k[i]=i+1;
+	//for (int i=0;i<2413528;i++) k[i]=i+1;
 	// std::cout<<k<<endl;
 	int B = (int)pow(2,32);
-	int d[1]={(int)pow(2,17)};
+	int d[2413528]={0};
+	d[2413528-1]=(int)pow(2,21);
 	
 	
 	int remainder = 0;
@@ -96,7 +98,7 @@ int main()
 	
 		if (prime[p])
 			{ 
-			findingremainder(k,d,B,p,remainder);
+			findingremainder(d,B,p,remainder);
 			int rem=remainder-1;
 			if (rem==0) counter+=counter;
 				
