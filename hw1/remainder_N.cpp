@@ -5,30 +5,32 @@
 #include <cstring>
 #include "omp.h"
 
+#define n 2413528
 // define the length of your d,k vectors
-#define n 1
 
-void largestsquarelessthanN(int val,int& m);
+// function that finds the largest square less than val
+void largestsquarelessthanval(int val,int& m);
 
-double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder);
-
-
-//function finds remainder with the k,n,B, and divisor inputs (replaces remainder with right value)
-double findingremainder(double k[n],double d[n], double B, int divisor,double& remainder)
+//function finds remainder with the n,B, and divisor inputs (replaces remainder with right value)
+int findingremainder(int d[n], int B, int divisor,int &remainder)
 {
 	
-	for (int i=0;i<n;i++)
+	int qnew;
+	int remnew;
 
-	{
-		
-		remainder+=d[i]*pow(B, k[i])-divisor*floor(d[i]*pow(B, k[i])/divisor);
+	int qold=(int)d[0]/divisor;
+	int remold=d[0]%divisor;
+
+	for (int i=1; i<2413528; i++){
+		qnew=floor((remold*B+d[i])/divisor);
+		remnew=(remold*B+d[i])%divisor;
+		qold=qnew;
+		remold=remnew;
 	}
-	
-		remainder=remainder-floor(remainder/divisor)*divisor;
-		return remainder;
+	remainder=remnew;
 }
 
-void largestsquarelessthanN(int val,int& m)
+void largestsquarelessthanval(int val,int& m)
 	{
 	m=(int)floor(sqrt(((float)val)));
 	}
@@ -39,14 +41,16 @@ int main()
 	int v=0;
 	int counter=0;
 	int val = 1000000;
-	double k[n]= {(double)((int)77232916/20)};
-	double d[n]= {(double)(pow(2,(int)77232916%20))};
-	double B = pow(2,20);
+
+	int B = (int)pow(2,32);
+	int d[2413528]={0};
+	d[2413528-1]=(int)pow(2,21);
 	
-	double remainder = 0;
+	
+	int remainder = 0;
 	
 	bool prime[val+1];
-	largestsquarelessthanN(n,v);
+	largestsquarelessthanval(n,v);
 	memset(prime, true, sizeof(prime));
 	
 
@@ -59,7 +63,6 @@ int main()
 			// Update all multiples of p
 			for (int i=p*2; i<=n; i += p)	prime[i] = false;
 			}
-	//if (p*p<=n) printf("%d",omp_get_num_threads());
 		}
 
 
@@ -71,7 +74,7 @@ int main()
 	
 		if (prime[p])
 			{ 
-			findingremainder(k,d,B,p,remainder);
+			findingremainder(d,B,p,remainder);
 			int rem=remainder-1;
 			if (rem==0) counter+=counter;
 				
@@ -79,7 +82,7 @@ int main()
 
 		}
 	
-	printf("factors of N: %d", counter);
+	printf("factors of M: %d", counter);
 	return 0;
 }
 
