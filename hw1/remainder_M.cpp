@@ -44,8 +44,8 @@ int main()
 
 	int B = (int)pow(2,32);
 	int *d = new int[2413528];
-	for (int i=0;i<2413527;i++) d[i]=0;
-	d[2413528-1]=(int)pow(2,21);
+	for (int i=0;i<2413526;i++) d[i]=0;
+	d[2413527]=(int)pow(2,21);
 	
 	
 	int remainder = 0;
