@@ -43,7 +43,7 @@ clock_t time_req;
 time_req=clock();
 //
 
-custom_rng** rng= new custom_rng(omp_get_max_thread())
+custom_rng** rng= new custom_rng(omp_get_max_threads());
 #pragma omp parallel
 {
 rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());    
@@ -83,7 +83,7 @@ rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());
             sum+=money;
             //printf("draws: %g, final val: %g, earnings: %g \n",counter,add,money);
             // Delete random number generators
-            delete c;
+            
             
             if (counter==2) two=two+1;
             else if (counter==3) three=three+1;
@@ -99,6 +99,6 @@ rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());
         //printf("Threads: %d\n",d);
         return 0;
 
-        delete custom_rng[omp_get_max_thread()]
+        delete rng[omp_get_max_thread()];
 
 }
