@@ -42,16 +42,16 @@ double fiveormore=0;
 clock_t time_req;
 time_req=clock();
 //
-/*
+
 custom_rng** rng= new custom_rng[omp_get_max_thread()]
 #pragma omp parallel
 {
-rng[omp_get_thread]=new custom_rng(omp_get_thread_num());    
+rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());    
 }
-*/
+
 // for (int k=0; k<threads;k++)
 // {rng[k]=new custom_rng(k)}
-custom_rng** c= new custom_rng
+//custom_rng** c= new custom_rng
 #pragma omp parallel num_threads(4)
     {
     #pragma omp for reduction (+:sum)
