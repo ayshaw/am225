@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <cstring>
 #include "omp.h"
-#include <array>
+
 
 // define the length of your d,k vectors
 #define n 2413528
