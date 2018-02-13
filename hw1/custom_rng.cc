@@ -43,7 +43,7 @@ clock_t time_req;
 time_req=clock();
 //
 
-custom_rng** rng= new custom_rng[omp_get_max_thread()]
+custom_rng** rng= new custom_rng(omp_get_max_thread())
 #pragma omp parallel
 {
 rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());    
