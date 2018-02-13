@@ -73,7 +73,7 @@ rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());
                 // Generate the numbers
                 
             while (add<1){
-            draw=rng[omp_get_thread_num]->doub();
+            draw=rng[d]->doub();
             add+=draw;
             counter=counter+1;
             //printf("%g %g\n",counter,draw);
@@ -98,4 +98,7 @@ rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());
         cout<< "it took "<< (float)time_req/CLOCKS_PER_SEC<< " seconds" << endl;
         //printf("Threads: %d\n",d);
         return 0;
+
+        delete custom_rng[omp_get_max_thread()]
+
 }
