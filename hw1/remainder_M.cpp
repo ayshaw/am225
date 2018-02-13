@@ -43,6 +43,7 @@ int main()
 	int val = 1000000;
 
 	int B = (int)pow(2,32);
+	int *d = new int[2413528]
 	int d[2413528]={0};
 	d[2413528-1]=(int)pow(2,21);
 	
@@ -83,7 +84,9 @@ int main()
 		}
 	
 	printf("factors of M: %d", counter);
+	delete [] d;
 	return 0;
+
 }
 
 

@@ -99,6 +99,6 @@ rng[omp_get_thread_num()]=new custom_rng(omp_get_thread_num());
         //printf("Threads: %d\n",d);
         return 0;
 
-        delete rng[omp_get_max_thread()];
+        delete rng[omp_get_max_threads()];
 
 }
